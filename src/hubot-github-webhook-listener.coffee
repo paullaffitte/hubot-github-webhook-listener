@@ -52,8 +52,8 @@ module.exports = (robot) ->
         robot.logger.info("Github post received: ", req)
       eventBody =
         eventType   : req.headers["x-github-event"]
-        signature   : req.headers["X-Hub-Signature"]
-        deliveryId  : req.headers["X-Github-Delivery"]
+        signature   : req.headers["x-hub-signature"]
+        deliveryId  : req.headers["x-github-delivery"]
         payload     : req.body
         query       : querystring.parse(url.parse(req.url).query)
 

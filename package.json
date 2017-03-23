@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "querystring": "^0.2.0",
-    "url": "^0.10.3"
+    "url": "^0.10.3",
+    "verify-github-webhook": "^1.0.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "hubot-github-webhook-listener",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "author": "Taylor Brown <taylor@youneedabudget.com>",
   "description": "Listens for github webhooks and emits an event for other Hubot scripts to respond to.",
   "keywords": [

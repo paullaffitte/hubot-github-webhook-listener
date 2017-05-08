@@ -38,14 +38,31 @@
 
 url           = require('url')
 querystring   = require('querystring')
+crypto        = require('crypto')
 
 debug = false
 
-module.exports = (robot) ->
+encode = (payload) ->
+  body = ""
+  for k,v of payload
+    body += "#{k}=#{encodeURIComponent(v)}"
 
-  #TODO: Introduce secret so that these are verified:
-  # See: https://developer.github.com/webhooks/securing/ and
-  # https://gist.github.com/dcollien/c5d86c968cbc85e88286
+  body = body.replace(/\%20/g, "+")
+  body = body.replace(/!/g, "%21")
+  body = body.replace(/\*/g, "%2A")
+  body = body.replace(/\(/g, "%28")
+  body = body.replace(/\)/g, "%29")
+  body = body.replace(/!/g, "%21")
+  body = body.replace(/!/g, "%21")
+  body = body.replace(/'/g, "%27")
+
+getSignature = (payload) ->
+  "sha1=#{crypto.createHmac("sha1", process.env['GITHUB_WEBHOOK_SECRET']).update(encode(payload)).digest("hex")}"
+
+verifySignature = (a, b) ->
+  crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b))
+
+module.exports = (robot) ->
   robot.router.post "/hubot/github-repo-listener", (req, res) ->
     try
       if (debug)
@@ -57,7 +74,8 @@ module.exports = (robot) ->
         payload     : req.body
         query       : querystring.parse(url.parse(req.url).query)
 
-      robot.emit "github-repo-event", eventBody
+      if verifySignature(getSignature(eventBody.payload), eventBody.signature)
+        robot.emit "github-repo-event", eventBody
     catch error
       robot.logger.error "Github repo webhook listener error: #{error.stack}. Request: #{req.body}"
 

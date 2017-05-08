@@ -37,12 +37,6 @@ To ensure non-github sources cannot send messages to your hubot, set an
 environment variable named `GITHUB_WEBHOOK_SECRET` to your [Github hooks
 secret](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 
-This will emit an additional event `github-verified-repo-event` when a webhook
-requests signature was generated with your shared secret.
-
-It will also raise an exceptin in the event the secret is not valid, but this
-should not block listeners to `github-repo-event`.
-
 ### Consuming the event
 You can consume it like so from one of your scripts:
 ```coffeescript
@@ -70,7 +64,7 @@ For easy local testing, I highly recommend ngrok: https://ngrok.com/
   It will show you a public URL like: `Forwarding  https://7a008da9.ngrok.com -> 127.0.0.1:8080`
 3. Put that URL in as your Github webhook: `https://7a008da9.ngrok.com/hubot/github-repo-listener`
 4. Install the hubot-github adapter `npm install --save hubot-github-adapter`
-5. Run hubot locally: `HUBOT_GITHUB_TOKEN=some_long_guid bin/hubot -a github-adapter --name Hubot`
+5. Run hubot locally: `HUBOT_GITHUB_TOKEN=some_long_guid GITHUB_WEBHOOK_SECRET=some_secret bin/hubot -a github-adapter --name Hubot`
 6. Fire off a github event by interacting with your repo. Comment on an issue or a PR for example.
 7. Navigate to `http://127.0.0.1:4040/`
   There you can see all webhooks posted to your local machine, and can replay them as many times as you wish.

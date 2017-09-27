@@ -1,7 +1,7 @@
 {
-  "name": "hubot-github-webhook-listener",
+  "name": "@viddsee/hubot-github-webhook-listener",
   "version": "1.0.0",
-  "author": "Taylor Brown <taylor@youneedabudget.com>",
+  "author": "Viddsee <support@viddsee.com>",
   "description": "Listens for github webhooks and emits an event for other Hubot scripts to respond to.",
   "keywords": [
     "hubot",
@@ -10,24 +10,18 @@
     "bot",
     "webhook"
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/ynab/hubot-github-webhook-listener/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/ynab/hubot-github-webhook-listener.git"
+    "url": "https://github.com/viddsee/hubot-github-webhook-listener.git"
   },
-  "license": "MIT",
   "main": "./src/hubot-github-webhook-listener.coffee",
   "devDependencies": {
     "coffee-script": "~1.7.1",
     "hubot": ">= 2.6.0 < 3.0.0"
   },
   "bugs": {
-    "url": "https://github.com/ynab/hubot-github-webhook-listener/issues"
+    "url": "https://github.com/viddsee/hubot-github-webhook-listener/issues"
   },
   "dependencies": {
     "querystring": "^0.2.0",

@@ -1,6 +1,6 @@
 {
   "name": "@viddsee/hubot-github-webhook-listener",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Viddsee <support@viddsee.com>",
   "description": "Listens for github webhooks and emits an event for other Hubot scripts to respond to.",
   "keywords": [

@@ -71,6 +71,6 @@ module.exports = (robot) ->
       robot.emit "github-repo-event", eventBody
     catch error
       robot.logger.error "Github repo webhook listener error: #{error.message}. Request: #{req.body}"
-      robot.logger.error err.stack
+      robot.logger.error error.stack
 
     res.end ""

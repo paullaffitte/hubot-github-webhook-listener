@@ -31,7 +31,7 @@
 #   5. Fire off a github event by interacting with your repo. Comment on an issue or a PR for example.
 #   6. Navigate to `http://127.0.0.1:4040/`
 #      There you can see all webhooks posted to your local machine, and can replay them as many times as you wish.
-#   7. If you set up a secret on your github webhook make sure HUBOT_GITHUB_WEBHOOK_TOKEN=yourverylongtoken if the 
+#   7. If you set up a secret on your github webhook make sure HUBOT_GITHUB_WEBHOOK_TOKEN=yourverylongtoken if the
 #      token is not set we will not verify the x-hub-signature.
 #
 # Authors:
@@ -70,7 +70,8 @@ module.exports = (robot) ->
 
       robot.emit "github-repo-event", eventBody
     catch error
-      robot.logger.error "Github repo webhook listener error: #{error.message}. Request: #{req.body}"
+      request = JSON.stringify req.body, null, 2
+      robot.logger.error "Github repo webhook listener error: #{error.message}. Request: #{request}"
       robot.logger.error error.stack
 
     res.end ""

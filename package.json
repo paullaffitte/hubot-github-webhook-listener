@@ -1,7 +1,7 @@
 {
-  "name": "@viddsee/hubot-github-webhook-listener",
+  "name": "@paullaffitte/hubot-github-webhook-listener",
   "version": "1.0.2",
-  "author": "Viddsee <support@viddsee.com>",
+  "author": "Paul Laffitte <paul.laffitte@epitech.eu>",
   "description": "Listens for github webhooks and emits an event for other Hubot scripts to respond to.",
   "keywords": [
     "hubot",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/viddsee/hubot-github-webhook-listener.git"
+    "url": "https://github.com/paullaffitte/hubot-github-webhook-listener.git"
   },
   "main": "./src/hubot-github-webhook-listener.coffee",
   "devDependencies": {
@@ -21,7 +21,7 @@
     "hubot": ">= 2.6.0 < 3.0.0"
   },
   "bugs": {
-    "url": "https://github.com/viddsee/hubot-github-webhook-listener/issues"
+    "url": "https://github.com/paullaffitte/hubot-github-webhook-listener/issues"
   },
   "dependencies": {
     "querystring": "^0.2.0",
